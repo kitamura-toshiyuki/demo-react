@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_cleanup',
     'rest_framework',
     'leads',
+    'frontend',
 ]
 
 MIDDLEWARE = [
