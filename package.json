@@ -24,5 +24,8 @@
     "build": "webpack --mode production ./frontend/src/index.js --output ./frontend/static/frontend/main.js",
     "flush": "pipenv run python ./manage.py flush --no-input",
     "e2e": "cypress open --project ./frontend/"
+  },
+  "dependencies": {
+    "js-cookie": "^2.2.0"
   }
 }

@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import CSRFToken from '../csrftoken';
+import JSCookie from 'js-cookie';
 
 class Form extends Component {
     static propTypes = {
@@ -23,7 +25,7 @@ class Form extends Component {
         const conf = {
             method: "post",
             body: JSON.stringify(lead),
-            headers: new Headers({"Content-Type": "application/json"})
+            headers: new Headers({"Content-Type": "application/json", "X-CSRFToken": JSCookie.get('csrftoken')})
         };
         fetch(this.props.endpoint, conf).then(response => console.log(response));
     };
@@ -33,6 +35,7 @@ class Form extends Component {
         return (
             <div className="column">
                 <form onSubmit={this.handleSubmit}>
+                    <CSRFToken />
                     <div className="field">
                         <label className="label">Name</label>
                         <div className="control">
