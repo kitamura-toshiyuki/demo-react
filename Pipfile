@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django-cleanup = "==2.1.0"
+gunicorn = "==19.9.0"
+mysqlclient = "==1.3.13"
+pytz = "==2018.5"
+whitenoise = "==3.3.1"
+djangorestframework = "==3.8.2"
+Django = "==2.1rc1"
+Pillow = "==5.2.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6.6"
