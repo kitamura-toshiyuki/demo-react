@@ -178,4 +178,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'frontend'
+LOGIN_REDIRECT_URL = 'frontend:index'

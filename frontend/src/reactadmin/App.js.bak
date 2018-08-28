@@ -1,0 +1,18 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import { Admin, Resource } from 'react-admin';
+import restProvider from 'ra-data-simple-rest';
+
+import { LeadsList, LeadsEdit, LeadsCreate, LeadsIcon } from './leads';
+
+const App = () => (
+    <React.Fragment>
+        <Admin dataProvider={restProvider('http://127.0.0.1:8001')}>
+            <Resource name="leads/api" list={LeadsList} edit={LeadsEdit} create={LeadsCreate} icon={LeadsIcon}/>
+        </Admin>
+    </React.Fragment>
+);
+
+const wrapper = document.getElementById("app");
+
+wrapper ? ReactDOM.render(<App/>, wrapper) : null;
