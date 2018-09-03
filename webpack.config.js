@@ -1,3 +1,10 @@
+var path = require("path")
+var webpack = require('webpack')
+var BundleTracker = require('webpack-bundle-tracker')
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 // [定数] webpack の出力オプションを指定します
 // 'production' か 'development' を指定
 const MODE = 'development';
@@ -10,13 +17,43 @@ module.exports = {
     // development に設定するとソースマップ有効でJSファイルが出力される
     mode: MODE,
 
+    context: __dirname,
+
+    devServer: {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+        hot: true,
+        port: 3000,
+        
+    },
+
+    entry: [
+        './frontend/static/frontend/main'
+    ],
+
+    output: {
+        path: path.resolve('./frontend/static/frontend/'),
+        filename: 'main.js',
+        publicPath: 'http://localhost:3000/frontend/static/frontend/', // Tell django to use this URL to load packages and not use STATIC_URL + bundle_name
+    },
+
+    plugins: [
+        new BundleTracker({filename: './webpack-stats.json'}),
+        new CleanWebpackPlugin(),
+    ],
+
+    optimization: {
+        noEmitOnErrors: true
+    },
+
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader"
+                    loader: "babel-loader?cacheDirectory"
                 }
             },
             {
@@ -40,3 +77,4 @@ module.exports = {
         ]
     }
 };
+

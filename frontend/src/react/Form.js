@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import CSRFToken from './csrftoken';
 import JSCookie from 'js-cookie';
 
+import {hot} from 'react-hot-loader';
+
 class Form extends Component {
     static propTypes = {
         endpoint: PropTypes.string.isRequired
@@ -86,4 +88,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default hot(module)(Form);

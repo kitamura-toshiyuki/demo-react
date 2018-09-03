@@ -1,3 +1,5 @@
+{% load static %}
+{% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html>
 
@@ -12,11 +14,9 @@
 <section class="section">
     <div class="container">
         <div id="react" class="columns"><!-- React --></div>
+        {% render_bundle 'main' %}
     </div>
 </section>
 </body>
-
-{% load static %}
-<script src="{% static "frontend/main.js" %}"></script>
 
 </html>

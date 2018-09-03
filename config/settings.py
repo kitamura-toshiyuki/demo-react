@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'leads',
     'frontend',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -179,3 +180,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'frontend:index'
+
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'frontend/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}

@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 
+import {hot} from 'react-hot-loader';
+
 class DataProvider extends Component {
     static propTypes = {
         endpoint: PropTypes.string.isRequired,
@@ -30,4 +32,4 @@ class DataProvider extends Component {
     }
 }
 
-export default DataProvider;
+export default hot(module)(DataProvider);

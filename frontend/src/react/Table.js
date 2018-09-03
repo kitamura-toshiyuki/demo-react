@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import key from "weak-key";
 
+import {hot} from 'react-hot-loader';
 
 const Table = ({data}) =>
     !data.length ? (
@@ -32,4 +33,4 @@ Table.propTypes = {
     data: PropTypes.array.isRequired
 };
 
-export default Table;
+export default hot(module)(Table);
