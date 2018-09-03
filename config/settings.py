@@ -180,7 +180,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'frontend:index'
-
+LOGOUT_REDIRECT_URL = 'login'
 
 WEBPACK_LOADER = {
     'DEFAULT': {
